@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: iToken-eureka
+  #被zipkin追踪加的配置
+  zipkin:
+    base-url: http://localhost:9411
+
+server:
+  port: 8762
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
