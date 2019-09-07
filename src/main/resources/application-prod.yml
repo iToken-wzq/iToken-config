@@ -1,22 +1,27 @@
 spring:
   application:
-    name: iToken-eureka
+    name: iToken-config
+  cloud:
+    config:
+      label: master
+      server:
+        git:
+          uri: https://github.com/iToken-wzq/iToken-config.git
+          search-paths: respo
+          username: MyWXF
+          password: Wzq123456@
+
   #被zipkin追踪加的配置
   zipkin:
-    base-url: http://localhost:9411
+    base-url: http://192.168.226.129:9411
 
 server:
-  port: 8762
+  port: 8888
 
 eureka:
-  instance:
-    hostname: localhost
   client:
-    registerWithEureka: false
-    fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-
+      defaultZone: http://192.168.226.129:8762/eureka/
 
 
 #监控服务的状态（health,健康  info 日志） 也可以写* 代表监控所有

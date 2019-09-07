@@ -15,3 +15,13 @@ management:
     web:
       server:
         auto-time-requests: false
+
+        #监控服务的状态（health,健康  info 日志） 也可以写* 代表监控所有
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        # 注意：此处在视频里是 include: ["health", "info"] 但已无效了，请修改
+        include: health,info
